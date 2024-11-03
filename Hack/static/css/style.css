@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background: #4CAF50;
+    padding: 1em;
+    text-align: center;
+}
+
+.nav-links a {
+    color: white;
+    padding: 0.5em;
+    text-decoration: none;
+}
+
+.hero {
+    background: #e0f7fa;
+    padding: 3em 1em;
+    text-align: center;
+}
+
+.hero-button {
+    background: #4CAF50;
+    color: white;
+    padding: 1em 2em;
+    text-decoration: none;
+    border-radius: 5px;
+}

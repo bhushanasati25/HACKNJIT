@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Risk Stratification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">HealthRisk.ai</a>
+            <ul class="nav-links">
+                <li><a href="/train_model">Train Model</a></li>
+                <li><a href="/predict_risk">Predict Risk</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AI-Powered Patient Risk Stratification Tool</h1>
+            <p>Analyze and predict patient risk levels to enable proactive healthcare interventions.</p>
+            <a href="/predict_risk" class="hero-button">Predict Now</a>
+        </div>
+    </section>
+</body>
+</html>
