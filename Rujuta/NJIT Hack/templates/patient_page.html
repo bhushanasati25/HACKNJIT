@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="header">
+    <h2>{{ greeting }}, {{ patient_name }}!</h2>
+    <span class="badge badge-info float-right">Points: {{ patient_points }}</span>
+</div>
+
+<h3>Your Prescriptions for Today</h3>
+
+<div class="section">
+    <h4>Medicines</h4>
+    {% for medicine in medicines %}
+    <p>{{ medicine.name }} 
+        <button onclick="markComplete('{{ medicine.id }}', 'complete')">✔</button>
+        <button onclick="markComplete('{{ medicine.id }}', 'incomplete')">✖</button>
+    </p>
+    {% endfor %}
+</div>
+
+<div class="section">
+    <h4>Exercise</h4>
+    {% for exercise in exercises %}
+    <p>{{ exercise.name }} - Goal: {{ exercise.goal }}
+        <button onclick="markComplete('{{ exercise.id }}', 'complete')">✔</button>
+        <button onclick="markComplete('{{ exercise.id }}', 'partial')">Partial</button>
+        <button onclick="markComplete('{{ exercise.id }}', 'incomplete')">✖</button>
+    </p>
+    {% endfor %}
+</div>
+
+<div class="section">
+    <h4>Diet</h4>
+    {% for diet in diets %}
+    <p>{{ diet.name }}
+        <button onclick="markComplete('{{ diet.id }}', 'complete')">✔</button>
+        <button onclick="markComplete('{{ diet.id }}', 'incomplete')">✖</button>
+    </p>
+    {% endfor %}
+</div>
+
+<script>
+function markComplete(itemId, status) {
+    fetch('/mark_complete', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({item_id: itemId, status: status})
+    }).then(response => response.json()).then(data => {
+        if (data.success) {
+            alert('Points Awarded: ' + data.points_earned);
+            location.reload(); // Reload to update points
+        }
+    });
+}
+</script>
+{% endblock %}

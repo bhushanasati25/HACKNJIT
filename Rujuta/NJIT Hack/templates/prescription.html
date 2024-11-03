@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Prescribe Treatment for Patient {{ patient_id }}</h2>
+<form method="POST" action="{{ url_for('prescribe', patient_id=patient_id) }}">
+    <div class="form-group">
+        <label for="medicines">Medicines:</label>
+        <input type="text" class="form-control" id="medicines" name="medicines" placeholder="Enter medicines">
+    </div>
+    <div class="form-group">
+        <label for="diet">Diet Plan:</label>
+        <input type="text" class="form-control" id="diet" name="diet" placeholder="Enter diet instructions">
+    </div>
+    <div class="form-group">
+        <label for="exercise">Exercise Routine:</label>
+        <input type="text" class="form-control" id="exercise" name="exercise" placeholder="Enter exercise instructions">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
